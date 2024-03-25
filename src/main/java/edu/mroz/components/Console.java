@@ -8,11 +8,11 @@ import java.awt.*;
 @Getter
 public class Console extends JPanel {
 
-    private JTextArea logArea;
+    private JScrollPane logArea;
     private JTextField commandField;
     private JButton commandButton;
 
-    public void addLogArea(JTextArea logArea) {
+    public void addLogArea(JScrollPane logArea) {
         this.logArea = logArea;
         add(this.logArea, BorderLayout.NORTH);
     }

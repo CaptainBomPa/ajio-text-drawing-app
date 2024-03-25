@@ -6,6 +6,7 @@ import edu.mroz.factory.CanvasFactory;
 import edu.mroz.factory.ConsoleFactory;
 import edu.mroz.factory.MainFrameFactory;
 import edu.mroz.factory.ToolbarFactory;
+import edu.mroz.interpreter.ConsoleLogAppender;
 import edu.mroz.interpreter.Interpreter;
 
 import javax.swing.*;
@@ -18,12 +19,14 @@ public class TextDrawingApp {
     private final Console console;
 
     private final Interpreter interpreter = Interpreter.getInstance();
+    private final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
 
     public TextDrawingApp() {
         this.toolBar = ToolbarFactory.createToolbar();
         this.canvas = CanvasFactory.createCanvas();
         this.console = ConsoleFactory.createConsole();
         createFrame();
+        consoleLogAppender.setConsole(console);
     }
 
     private void createFrame() {
@@ -41,9 +44,10 @@ public class TextDrawingApp {
 
     private void addConsoleListener() {
         console.getCommandButton().addActionListener(action -> {
-            interpreter.interpretCommand(console.getCommandField().getText(), canvas);
-            console.getLogArea().setText(console.getLogArea().getText() + "\n" + console.getCommandField().getText());
+            consoleLogAppender.addUserPromptLog(console.getCommandField().getText());
+            final String userCommand = console.getCommandField().getText();
             console.getCommandField().setText("");
+            interpreter.interpretCommand(userCommand, canvas);
         });
     }
 

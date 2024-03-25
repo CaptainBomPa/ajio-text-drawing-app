@@ -2,6 +2,7 @@ package edu.mroz.interpreter.commands;
 
 import edu.mroz.components.Canvas;
 import edu.mroz.interpreter.CanvasCurrentPointer;
+import edu.mroz.interpreter.commands.utils.CommandErrorHandler;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -10,10 +11,11 @@ public class GoCommand implements Command {
 
     private static final CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
     private final Pattern pattern = Pattern.compile("^(go) (\\d+)$");
+    private final Pattern commandPattern = Pattern.compile("^(go)\\s*([^\\s]*)$");
 
     @Override
     public boolean matchRegex(String value) {
-        return pattern.matcher(value).find();
+        return commandPattern.matcher(value).find();
     }
 
     @Override
@@ -22,7 +24,8 @@ public class GoCommand implements Command {
         if (matcher.find()) {
             return matcher.group(2);
         }
-        throw new IllegalArgumentException("Expected proper command, but got invalid. Value=" + value);
+        CommandErrorHandler.handleError(commandPattern, value);
+        return null;
     }
 
     @Override
@@ -38,5 +41,4 @@ public class GoCommand implements Command {
 
         canvas.drawLine(endX, endY);
     }
-
 }

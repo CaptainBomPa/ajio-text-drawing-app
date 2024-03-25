@@ -11,13 +11,13 @@ import static edu.mroz.AppConstants.*;
 public class ConsoleFactory {
 
     public static Console createConsole() {
-        JTextArea logArea = createLogArea();
+        JScrollPane logArea = createLogArea();
         JTextField commandField = createCommandField();
         JideButton commandButton = createCommandButton();
         return createConsole(logArea, commandField, commandButton);
     }
 
-    private static Console createConsole(JTextArea logArea, JTextField commandField, JideButton commandButton) {
+    private static Console createConsole(JScrollPane logArea, JTextField commandField, JideButton commandButton) {
         Console console = new Console();
         console.setSize(new Dimension(COMPONENTS_WIDTH, CONSOLE_HEIGHT));
         console.setPreferredSize(new Dimension(COMPONENTS_WIDTH, CONSOLE_HEIGHT));
@@ -26,21 +26,25 @@ public class ConsoleFactory {
         return console;
     }
 
-    private static JTextArea createLogArea() {
-        JTextArea logArea = new JTextArea();
+    private static JScrollPane createLogArea() {
+        JTextPane logArea = new JTextPane();
+        logArea.setEditable(false);
+
+        JScrollPane logScrollPane = new JScrollPane(logArea);
+        logScrollPane.setPreferredSize(new Dimension(COMPONENTS_WIDTH, 150));
+        logScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+
         logArea.setSize(new Dimension(COMPONENTS_WIDTH, 150));
         logArea.setPreferredSize(new Dimension(COMPONENTS_WIDTH, 150));
-        logArea.setEditable(false);
-        JScrollPane logScrollPane = new JScrollPane(logArea);
-        logScrollPane.setPreferredSize(new Dimension(COMPONENTS_WIDTH, CONSOLE_HEIGHT));
         createDefaultBorder(logArea);
-        return logArea;
+        return logScrollPane;
     }
 
     private static JTextField createCommandField() {
         JTextField commandField = new JTextField();
         commandField.setFont(new Font(commandField.getFont().getName(), Font.PLAIN, 22));
         commandField.setPreferredSize(new Dimension(COMPONENTS_WIDTH - CONSOLE_APPLY_BUTTON_WIDTH - 2, 35));
+        commandField.setMargin(new Insets(0, 10, 0, 0));
         createDefaultBorder(commandField);
         return commandField;
     }
