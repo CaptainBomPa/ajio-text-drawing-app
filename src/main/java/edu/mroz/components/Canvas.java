@@ -23,13 +23,15 @@ public class Canvas extends JPanel {
         setPreferredSize(new Dimension(COMPONENTS_WIDTH, CANVAS_HEIGHT));
         setSize(new Dimension(COMPONENTS_WIDTH, CANVAS_HEIGHT));
         setBackground(Color.white);
+
+        CanvasPointer canvasPointer = new CanvasPointer(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, 27);
+        shapes.add(new ColoredShape(canvasPointer, null));
     }
 
     public void drawLine(int x2, int y2) {
         Line2D line = new Line2D.Float(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, x2, y2);
         shapes.add(new ColoredShape(line, canvasCurrentPointer.getDrawingColor()));
         canvasCurrentPointer.setCurrentPointPosition(new Point(x2, y2));
-        repaint();
     }
 
     @Override
@@ -37,8 +39,21 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         for (ColoredShape coloredShape : shapes) {
-            g2d.setColor(coloredShape.getColor());
-            g2d.draw(coloredShape.getShape());
+            if (coloredShape.getShape() instanceof CanvasPointer) {
+                paintPointer(g2d, (CanvasPointer) coloredShape.getShape());
+            } else {
+                g2d.setColor(coloredShape.getColor());
+                g2d.draw(coloredShape.getShape());
+            }
         }
+    }
+
+    private void paintPointer(Graphics2D g2d, CanvasPointer canvasPointer) {
+        float[] dashPattern = {6, 3};
+        g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10, dashPattern, 0));
+        g2d.setColor(Color.DARK_GRAY);
+        canvasPointer.setPositionAndDirection(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, canvasCurrentPointer.getDirection());
+        g2d.draw(canvasPointer);
+        g2d.setStroke(new BasicStroke());
     }
 }

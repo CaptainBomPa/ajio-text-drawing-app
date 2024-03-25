@@ -33,6 +33,7 @@ public class CommandsHolder {
                 command.execute(command.pullArgument(stringCommand), canvas);
             }
         }
+        canvas.repaint();
     }
 
 }

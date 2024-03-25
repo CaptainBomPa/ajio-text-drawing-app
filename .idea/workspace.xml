@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7210760-e9b5-4fd9-b450-0ad6f50427ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/ConsoleLogAppender.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/utils/CommandErrorHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/TextDrawingApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/TextDrawingApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/ColorCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/ColorCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/DirectionCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/DirectionCommand.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/GoCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/GoCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +86,7 @@
       <updated>1711303768463</updated>
       <workItem from="1711303769551" duration="5522000" />
       <workItem from="1711310521092" duration="3707000" />
-      <workItem from="1711382139440" duration="11247000" />
+      <workItem from="1711382139440" duration="14757000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup of project">
       <created>1711390901930</created>
@@ -100,7 +95,14 @@
       <option name="project" value="LOCAL" />
       <updated>1711390901930</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Better error handling. Logs improvement.">
+      <created>1711395811988</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1711395811988</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -110,7 +112,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial setup of project" />
-    <option name="LAST_COMMIT_MESSAGE" value="Initial setup of project" />
+    <MESSAGE value="Better error handling. Logs improvement." />
+    <option name="LAST_COMMIT_MESSAGE" value="Better error handling. Logs improvement." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
