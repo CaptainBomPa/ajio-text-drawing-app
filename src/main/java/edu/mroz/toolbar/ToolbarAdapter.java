@@ -2,7 +2,12 @@ package edu.mroz.toolbar;
 
 import edu.mroz.components.Canvas;
 import edu.mroz.components.JMenuWrapper;
-import edu.mroz.toolbar.action.*;
+import edu.mroz.toolbar.action.ClearUserAction;
+import edu.mroz.toolbar.action.ExportUserAction;
+import edu.mroz.toolbar.action.HelpUserAction;
+import edu.mroz.toolbar.action.ShowHidePointerUserAction;
+import edu.mroz.toolbar.action.project.LoadUserAction;
+import edu.mroz.toolbar.action.project.SaveUserAction;
 import lombok.Getter;
 
 import javax.swing.*;
@@ -13,26 +18,23 @@ public class ToolbarAdapter {
     private final JToolBar toolBar;
     private final Canvas canvas;
 
-    private final JButton menu;
     private final JMenuItem saveItem;
     private final JMenuItem exportItem;
     private final JMenuItem loadItem;
     private final JButton clearButton;
     private final JButton showHidePointerButton;
-    private final JButton historyButton;
     private final JButton helpButton;
 
     public ToolbarAdapter(Canvas canvas, JToolBar toolBar, JMenuWrapper menuWrapper, JButton clearButton,
-                          JButton showHidePointerButton, JButton historyButton, JButton helpButton) {
+                          JButton showHidePointerButton, JButton helpButton) {
         this.toolBar = toolBar;
         this.canvas = canvas;
-        this.menu = (JButton) toolBar.add(menuWrapper.getMenu());
+        toolBar.add(menuWrapper.getMenu());
         this.saveItem = menuWrapper.getSaveItem();
         this.exportItem = menuWrapper.getExportItem();
         this.loadItem = menuWrapper.getLoadItem();
         this.clearButton = (JButton) toolBar.add(clearButton);
         this.showHidePointerButton = (JButton) toolBar.add(showHidePointerButton);
-        this.historyButton = (JButton) toolBar.add(historyButton);
         this.helpButton = (JButton) toolBar.add(helpButton);
         initButtonsLogic();
     }
@@ -43,5 +45,6 @@ public class ToolbarAdapter {
         new SaveUserAction(saveItem, canvas);
         new LoadUserAction(loadItem, canvas);
         new ExportUserAction(exportItem, canvas);
+        new HelpUserAction(helpButton);
     }
 }

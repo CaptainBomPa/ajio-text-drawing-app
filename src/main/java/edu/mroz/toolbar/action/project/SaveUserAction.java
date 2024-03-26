@@ -1,7 +1,7 @@
-package edu.mroz.toolbar.action;
+package edu.mroz.toolbar.action.project;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.components.ColoredShape;
+import edu.mroz.data.PointerParameters;
 import edu.mroz.utils.ConsoleLogAppender;
 
 import javax.swing.*;
@@ -11,12 +11,12 @@ import java.awt.event.ActionListener;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
-import java.util.List;
 
 public class SaveUserAction {
 
     private final Canvas canvas;
     private final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
+    private final PointerParameters pointerParameters = PointerParameters.getInstance();
 
     public SaveUserAction(JMenuItem menuItem, Canvas canvas) {
         this.canvas = canvas;
@@ -42,13 +42,13 @@ public class SaveUserAction {
                     FileOutputStream fileOut = new FileOutputStream(filePath);
                     ObjectOutputStream out = new ObjectOutputStream(fileOut);
 
-                    List<ColoredShape> shapes = canvas.getShapes();
-                    out.writeObject(shapes);
+                    ProjectExportData projectExportData = new ProjectExportData(pointerParameters, canvas.getShapes());
+                    out.writeObject(projectExportData);
 
                     out.close();
                     fileOut.close();
 
-                    consoleLogAppender.addInfoSystemLog("Saved shapes to " + filePath);
+                    consoleLogAppender.addInfoSystemLog("Saved project to " + filePath);
                 } catch (IOException ex) {
                     ex.printStackTrace();
                     consoleLogAppender.addErrorSystemLog("Error saving project");

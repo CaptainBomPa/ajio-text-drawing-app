@@ -4,11 +4,12 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.awt.*;
+import java.io.Serializable;
 
 import static edu.mroz.AppConstants.CANVAS_HEIGHT;
 import static edu.mroz.AppConstants.COMPONENTS_WIDTH;
 
-public class PointerParameters {
+public class PointerParameters implements Serializable {
 
     private static PointerParameters instance;
 
@@ -45,5 +46,12 @@ public class PointerParameters {
 
     public boolean shouldDraw() {
         return pointerState != PointerState.UP;
+    }
+
+    public void restore(PointerParameters pointerParameters) {
+        this.currentPointPosition = pointerParameters.getCurrentPointPosition();
+        this.direction = pointerParameters.getDirection();
+        this.drawingColor = pointerParameters.getDrawingColor();
+        this.pointerState = pointerParameters.getPointerState();
     }
 }

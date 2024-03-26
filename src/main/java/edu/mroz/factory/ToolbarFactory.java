@@ -16,7 +16,6 @@ public class ToolbarFactory {
     private static final String LOAD_BUTTON = "Load project";
     private static final String CLEAR_BUTTON = "Clear";
     private static final String SHOW_HIDE_POINTER_BUTTON = "Show/Hide Pointer";
-    private static final String HISTORY_BUTTON = "History";
     private static final String HELP_BUTTON = "Help";
 
     private ToolbarFactory() {
@@ -25,53 +24,19 @@ public class ToolbarFactory {
     public static ToolbarAdapter createToolbar(Canvas canvas) {
         JToolBar toolBar = new JToolBar();
         toolBar.setFloatable(false);
-        return new ToolbarAdapter(canvas, toolBar, createMenu(), createClearButton(),
-                createShowHidePointerButton(), createHistoryButton(), createHelpButton());
+        return new ToolbarAdapter(canvas, toolBar, createMenu(), createButton(CLEAR_BUTTON),
+                createButton(SHOW_HIDE_POINTER_BUTTON), createButton(HELP_BUTTON));
     }
 
     private static JMenuWrapper createMenu() {
-        return new JMenuWrapper(new JButton(MENU), createSaveButton(), createExportButton(), createLoadButton());
+        return new JMenuWrapper(new JButton(MENU), createMenuItem(SAVE_BUTTON), createMenuItem(EXPORT_BUTTON), createMenuItem(LOAD_BUTTON));
     }
 
-    private static JMenuItem createLoadButton() {
-        JMenuItem saveButton = new JMenuItem(LOAD_BUTTON);
-        saveButton.setToolTipText(LOAD_BUTTON);
-        return saveButton;
+    private static JButton createButton(String name) {
+        return new JButton(name);
     }
 
-    private static JMenuItem createExportButton() {
-        JMenuItem saveButton = new JMenuItem(EXPORT_BUTTON);
-        saveButton.setToolTipText(EXPORT_BUTTON);
-        return saveButton;
-    }
-
-    private static JMenuItem createSaveButton() {
-        JMenuItem saveButton = new JMenuItem(SAVE_BUTTON);
-        saveButton.setToolTipText(SAVE_BUTTON);
-        return saveButton;
-    }
-
-    private static JButton createClearButton() {
-        JButton clearButton = new JButton(CLEAR_BUTTON);
-        clearButton.setToolTipText(CLEAR_BUTTON);
-        return clearButton;
-    }
-
-    private static JButton createShowHidePointerButton() {
-        JButton helpButton = new JButton(SHOW_HIDE_POINTER_BUTTON);
-        helpButton.setToolTipText(SHOW_HIDE_POINTER_BUTTON);
-        return helpButton;
-    }
-
-    private static JButton createHistoryButton() {
-        JButton helpButton = new JButton(HISTORY_BUTTON);
-        helpButton.setToolTipText(HISTORY_BUTTON);
-        return helpButton;
-    }
-
-    private static JButton createHelpButton() {
-        JButton helpButton = new JButton(HELP_BUTTON);
-        helpButton.setToolTipText(HELP_BUTTON);
-        return helpButton;
+    private static JMenuItem createMenuItem(String name) {
+        return new JMenuItem(name);
     }
 }

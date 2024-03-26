@@ -1,7 +1,7 @@
-package edu.mroz.toolbar.action;
+package edu.mroz.toolbar.action.project;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.components.ColoredShape;
+import edu.mroz.data.PointerParameters;
 import edu.mroz.utils.ConsoleLogAppender;
 
 import javax.swing.*;
@@ -11,12 +11,12 @@ import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.List;
 
 public class LoadUserAction {
 
     private final Canvas canvas;
     private final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
+    private final PointerParameters pointerParameters = PointerParameters.getInstance();
 
     public LoadUserAction(JMenuItem menuItem, Canvas canvas) {
         this.canvas = canvas;
@@ -39,14 +39,14 @@ public class LoadUserAction {
                     FileInputStream fileIn = new FileInputStream(filePath);
                     ObjectInputStream in = new ObjectInputStream(fileIn);
 
-                    @SuppressWarnings("unchecked")
-                    List<ColoredShape> shapes = (List<ColoredShape>) in.readObject();
+                    ProjectExportData projectExportData = (ProjectExportData) in.readObject();
 
                     in.close();
                     fileIn.close();
 
                     canvas.clearCanvas();
-                    canvas.setShapes(shapes);
+                    pointerParameters.restore(projectExportData.getPointerParameters());
+                    canvas.setShapes(projectExportData.getShapes());
                     consoleLogAppender.addInfoSystemLog("Loaded shapes from " + filePath);
                 } catch (IOException | ClassNotFoundException ex) {
                     ex.printStackTrace();
