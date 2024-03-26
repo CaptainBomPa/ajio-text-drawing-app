@@ -28,8 +28,6 @@ public class Console extends JPanel {
     }
 
     private void applyEnterBehavior(JTextField commandField) {
-        commandField.addActionListener(action -> {
-            commandButton.doClick();
-        });
+        commandField.addActionListener(action -> commandButton.doClick());
     }
 }

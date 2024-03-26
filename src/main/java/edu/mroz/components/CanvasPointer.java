@@ -6,7 +6,8 @@ import java.awt.geom.*;
 public class CanvasPointer implements Shape {
     private Path2D path;
     private double direction = 0.0;
-    private double x, y;
+    private double x;
+    private double y;
 
     public CanvasPointer(double x, double y, double direction) {
         setPositionAndDirection(x, y, direction);

@@ -1,6 +1,5 @@
 package edu.mroz.factory;
 
-import com.jidesoft.swing.JideButton;
 import edu.mroz.components.Console;
 
 import javax.swing.*;
@@ -10,14 +9,17 @@ import static edu.mroz.AppConstants.*;
 
 public class ConsoleFactory {
 
+    private ConsoleFactory() {
+    }
+
     public static Console createConsole() {
         JScrollPane logArea = createLogArea();
         JTextField commandField = createCommandField();
-        JideButton commandButton = createCommandButton();
+        JButton commandButton = createCommandButton();
         return createConsole(logArea, commandField, commandButton);
     }
 
-    private static Console createConsole(JScrollPane logArea, JTextField commandField, JideButton commandButton) {
+    private static Console createConsole(JScrollPane logArea, JTextField commandField, JButton commandButton) {
         Console console = new Console();
         console.setSize(new Dimension(COMPONENTS_WIDTH, CONSOLE_HEIGHT));
         console.setPreferredSize(new Dimension(COMPONENTS_WIDTH, CONSOLE_HEIGHT));
@@ -32,7 +34,7 @@ public class ConsoleFactory {
 
         JScrollPane logScrollPane = new JScrollPane(logArea);
         logScrollPane.setPreferredSize(new Dimension(COMPONENTS_WIDTH, 150));
-        logScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        logScrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
         logArea.setSize(new Dimension(COMPONENTS_WIDTH, 150));
         logArea.setPreferredSize(new Dimension(COMPONENTS_WIDTH, 150));
@@ -49,8 +51,8 @@ public class ConsoleFactory {
         return commandField;
     }
 
-    private static JideButton createCommandButton() {
-        JideButton commandButton = new JideButton("Apply");
+    private static JButton createCommandButton() {
+        JButton commandButton = new JButton("Apply");
         commandButton.setFont(new Font(commandButton.getFont().getName(), Font.PLAIN, 20));
         commandButton.setPreferredSize(new Dimension(CONSOLE_APPLY_BUTTON_WIDTH - 2, 35));
         createDefaultBorder(commandButton);

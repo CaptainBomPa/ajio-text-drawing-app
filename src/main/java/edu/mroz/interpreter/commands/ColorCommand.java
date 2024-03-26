@@ -26,9 +26,9 @@ public class ColorCommand implements Command {
     }
 
     private final CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
-    private final Pattern commandPattern = Pattern.compile("^(color)\\s*([^\\s]*)$");
+    private final Pattern commandPattern = Pattern.compile("^(color)\\s*(\\S*)$");
     private final Pattern namedColorPattern = Pattern.compile("^color (RED|BLUE|GREEN|BLACK|GRAY|PINK|WHITE|YELLOW)$", Pattern.CASE_INSENSITIVE);
-    private final Pattern hexColorPattern = Pattern.compile("^color (#[a-fA-F0-9]{6})$", Pattern.CASE_INSENSITIVE);
+    private final Pattern hexColorPattern = Pattern.compile("^color (#[a-f0-9]{6})$", Pattern.CASE_INSENSITIVE);
     private final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
 
     @Override

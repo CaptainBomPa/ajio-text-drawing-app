@@ -5,10 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7210760-e9b5-4fd9-b450-0ad6f50427ef" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/AppConstants.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/CanvasFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/CanvasFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/MainFrameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/MainFrameFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ToolbarFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ToolbarFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/utils/CommandErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/utils/CommandErrorHandler.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +30,23 @@
       <ProjectState />
     </projectState>
   </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="TextToDrawingApp" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -27,6 +54,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -37,20 +67,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Filip/Desktop/Semestr 8/Ajio/TextToDrawingApp/src/main/java/edu/mroz&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "/Users/filip/Documents/ajio/ajio-text-drawing-app",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.gradle",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Filip\Desktop\Semestr 8\Ajio\TextToDrawingApp\src\main\java\edu\mroz" />
@@ -87,6 +120,7 @@
       <workItem from="1711303769551" duration="5522000" />
       <workItem from="1711310521092" duration="3707000" />
       <workItem from="1711382139440" duration="14757000" />
+      <workItem from="1711438014792" duration="1151000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup of project">
       <created>1711390901930</created>

@@ -1,12 +1,14 @@
 package edu.mroz.factory;
 
-import com.jidesoft.swing.JideButton;
 import lombok.extern.slf4j.Slf4j;
 
 import javax.swing.*;
 
 @Slf4j
 public class ToolbarFactory {
+
+    private ToolbarFactory() {
+    }
 
     public static JToolBar createToolbar() {
         JToolBar toolBar = new JToolBar();
@@ -19,48 +21,38 @@ public class ToolbarFactory {
         return toolBar;
     }
 
-    private static JideButton createSaveButton() {
-        JideButton saveButton = new JideButton("Save");
+    private static JButton createSaveButton() {
+        JButton saveButton = new JButton("Save");
         saveButton.setToolTipText("Save");
-        saveButton.addActionListener(action -> {
-            log.info("Clicked Save Button");
-        });
+        saveButton.addActionListener(action -> log.info("Clicked Save Button"));
         return saveButton;
     }
 
-    private static JideButton createClearButton() {
-        JideButton clearButton = new JideButton("Clear");
+    private static JButton createClearButton() {
+        JButton clearButton = new JButton("Clear");
         clearButton.setToolTipText("Clear");
-        clearButton.addActionListener(action -> {
-            log.info("Clicked Clear Button");
-        });
+        clearButton.addActionListener(action -> log.info("Clicked Clear Button"));
         return clearButton;
     }
 
-    private static JideButton createHelpButton() {
-        JideButton helpButton = new JideButton("Help");
+    private static JButton createHelpButton() {
+        JButton helpButton = new JButton("Help");
         helpButton.setToolTipText("Help");
-        helpButton.addActionListener(action -> {
-            log.info("Clicked Help Button");
-        });
+        helpButton.addActionListener(action -> log.info("Clicked Help Button"));
         return helpButton;
     }
 
-    private static JideButton createShowHidePointerButton() {
-        JideButton helpButton = new JideButton("Show/Hide Pointer");
+    private static JButton createShowHidePointerButton() {
+        JButton helpButton = new JButton("Show/Hide Pointer");
         helpButton.setToolTipText("Show/Hide Pointer");
-        helpButton.addActionListener(action -> {
-            log.info("Clicked Show/Hide Pointer Button");
-        });
+        helpButton.addActionListener(action -> log.info("Clicked Show/Hide Pointer Button"));
         return helpButton;
     }
 
-    private static JideButton createHistoryButton() {
-        JideButton helpButton = new JideButton("Changes History");
+    private static JButton createHistoryButton() {
+        JButton helpButton = new JButton("Changes History");
         helpButton.setToolTipText("Changes History");
-        helpButton.addActionListener(action -> {
-            log.info("Clicked Changes History Button");
-        });
+        helpButton.addActionListener(action -> log.info("Clicked Changes History Button"));
         return helpButton;
     }
 }

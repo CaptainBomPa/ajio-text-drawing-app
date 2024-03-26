@@ -13,7 +13,7 @@ import static edu.mroz.AppConstants.COMPONENTS_WIDTH;
 
 public class Canvas extends JPanel {
 
-    private final CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
+    private final transient CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
     private final List<ColoredShape> shapes = new ArrayList<>();
 
     public Canvas() {

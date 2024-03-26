@@ -7,6 +7,9 @@ import java.util.regex.Pattern;
 
 public class CommandErrorHandler {
 
+    private CommandErrorHandler() {
+    }
+
     private static final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
 
     public static void handleError(Pattern pattern, String value) {
