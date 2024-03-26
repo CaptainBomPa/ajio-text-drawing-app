@@ -28,9 +28,9 @@ public class ShowHidePointerUserAction {
 
         private void addLog() {
             if (canvas.getPointerAsShape().isShouldDraw()) {
-                consoleLogAppender.addInfoSystemLog("The Pointer is hidden");
-            } else {
                 consoleLogAppender.addInfoSystemLog("The Pointer is visible");
+            } else {
+                consoleLogAppender.addInfoSystemLog("The Pointer is hidden");
             }
         }
     }

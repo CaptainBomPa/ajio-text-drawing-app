@@ -14,7 +14,7 @@ public class CommandErrorHandler {
 
     public static void handleError(Pattern pattern, String value) {
         Matcher matcher = pattern.matcher(value);
-        if (matcher.find() && matcher.group(1) != null && !matcher.group(2).isBlank()) {
+        if (matcher.find() && matcher.group(1) != null && matcher.group(2) != null && !matcher.group(2).isBlank()) {
             String errorLogString = "Expected proper " + matcher.group(1) + " command. Value=" + matcher.group(2) + " is unexpected.";
             consoleLogAppender.addErrorSystemLog(errorLogString);
             throw new IllegalArgumentException(errorLogString);

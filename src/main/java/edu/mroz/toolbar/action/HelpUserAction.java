@@ -12,8 +12,8 @@ public class HelpUserAction {
         popupMenu.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
         JTextPane textPane = new JTextPane();
-        textPane.setPreferredSize(new Dimension(500, 150));
-        popupMenu.setPreferredSize(new Dimension(500, 150));
+        textPane.setPreferredSize(new Dimension(500, 200));
+        popupMenu.setPreferredSize(new Dimension(500, 200));
         textPane.setContentType("text/html");
         textPane.setEditable(false);
         textPane.setBackground(button.getBackground());
@@ -44,6 +44,7 @@ public class HelpUserAction {
                 createEntry("direction", "0-359 | +60 | -90 and so on...", "Change the direction of the pointer. It can be static, decreased or increased.") +
                 createEntry("up", "", "Raising the brush. The pointer will only move from that point.") +
                 createEntry("down", "", "Lowering the brush. The pointer will draw.") +
+                createEntry("repeat", "0 to unlimited Integer number", "Repeat next commands X times.") +
                 "</body></html>";
     }
 
