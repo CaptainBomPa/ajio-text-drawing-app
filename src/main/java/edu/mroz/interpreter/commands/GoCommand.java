@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class GoCommand implements Command {
 
-    private static final PointerParameters POINTER_PARAMETERS = PointerParameters.getInstance();
+    private static final PointerParameters pointerParameters = PointerParameters.getInstance();
     private final Pattern pattern = Pattern.compile("^(go) (\\d+)$");
     private final Pattern commandPattern = Pattern.compile("^(go)\\s*([^\\s]*)$");
 
@@ -31,13 +31,13 @@ public class GoCommand implements Command {
     @Override
     public void execute(String value, Canvas canvas) {
         int distance = Integer.parseInt(value);
-        double directionRadians = Math.toRadians(POINTER_PARAMETERS.getDirection());
+        double directionRadians = Math.toRadians(pointerParameters.getDirection());
 
         int deltaX = (int) (distance * Math.sin(directionRadians));
         int deltaY = (int) (distance * Math.cos(directionRadians));
 
-        int endX = POINTER_PARAMETERS.getCurrentPointPosition().x + deltaX;
-        int endY = POINTER_PARAMETERS.getCurrentPointPosition().y - deltaY;
+        int endX = pointerParameters.getCurrentPointPosition().x + deltaX;
+        int endY = pointerParameters.getCurrentPointPosition().y - deltaY;
 
         canvas.drawLine(endX, endY);
     }

@@ -25,12 +25,12 @@ public class Canvas extends JPanel {
         setBackground(Color.white);
 
         CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
-        shapes.add(new ColoredShape(canvasPointer, null));
+        shapes.add(new ColoredShape(canvasPointer, null, true));
     }
 
     public void drawLine(int x2, int y2) {
         Line2D line = new Line2D.Float(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, x2, y2);
-        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor()));
+        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw()));
         pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
 
@@ -41,7 +41,7 @@ public class Canvas extends JPanel {
         for (ColoredShape coloredShape : shapes) {
             if (coloredShape.getShape() instanceof CanvasPointer) {
                 paintPointer(g2d, (CanvasPointer) coloredShape.getShape());
-            } else {
+            } else if (coloredShape.isShouldDraw()) {
                 g2d.setColor(coloredShape.getColor());
                 g2d.draw(coloredShape.getShape());
             }

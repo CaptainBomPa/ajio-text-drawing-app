@@ -21,11 +21,15 @@ public class PointerParameters {
     @Getter
     @Setter
     private Color drawingColor;
+    @Getter
+    @Setter
+    private PointerState pointerState;
 
     private PointerParameters() {
         currentPointPosition = new Point(COMPONENTS_WIDTH / 2, CANVAS_HEIGHT / 2);
         direction = 0;
         drawingColor = Color.BLACK;
+        pointerState = PointerState.DOWN;
     }
 
     public static synchronized PointerParameters getInstance() {
@@ -33,5 +37,9 @@ public class PointerParameters {
             instance = new PointerParameters();
         }
         return instance;
+    }
+
+    public boolean shouldDraw() {
+        return pointerState != PointerState.UP;
     }
 }

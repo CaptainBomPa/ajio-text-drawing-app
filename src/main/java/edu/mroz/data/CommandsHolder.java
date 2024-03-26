@@ -1,10 +1,7 @@
 package edu.mroz.data;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.interpreter.commands.ColorCommand;
-import edu.mroz.interpreter.commands.Command;
-import edu.mroz.interpreter.commands.DirectionCommand;
-import edu.mroz.interpreter.commands.GoCommand;
+import edu.mroz.interpreter.commands.*;
 import edu.mroz.utils.ConsoleLogAppender;
 import lombok.Getter;
 
@@ -14,17 +11,10 @@ import java.util.List;
 public class CommandsHolder {
 
     private static final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
-    public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color)";
+    public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color|up|down)";
     private static CommandsHolder instance;
     @Getter
     private final List<Command> commandList;
-
-    private CommandsHolder() {
-        commandList = new ArrayList<>();
-        commandList.add(new GoCommand());
-        commandList.add(new DirectionCommand());
-        commandList.add(new ColorCommand());
-    }
 
     public static synchronized CommandsHolder getInstance() {
         if (instance == null) {
@@ -47,6 +37,15 @@ public class CommandsHolder {
         } else {
             consoleLogAppender.addErrorSystemLog("Command \"" + stringCommand + "\" not recognized.");
         }
+    }
+
+    private CommandsHolder() {
+        commandList = new ArrayList<>();
+        commandList.add(new GoCommand());
+        commandList.add(new DirectionCommand());
+        commandList.add(new ColorCommand());
+        commandList.add(new UpCommand());
+        commandList.add(new DownCommand());
     }
 
 }
