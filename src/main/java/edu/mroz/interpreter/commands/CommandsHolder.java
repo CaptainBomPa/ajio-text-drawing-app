@@ -1,6 +1,7 @@
 package edu.mroz.interpreter.commands;
 
 import edu.mroz.components.Canvas;
+import edu.mroz.interpreter.ConsoleLogAppender;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -8,6 +9,7 @@ import java.util.List;
 
 public class CommandsHolder {
 
+    private static final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
     public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color)";
     private static CommandsHolder instance;
     @Getter
@@ -28,12 +30,19 @@ public class CommandsHolder {
     }
 
     public void findAndRunCommand(String stringCommand, Canvas canvas) {
+        boolean commandFound = false;
         for (Command command : commandList) {
             if (command.matchRegex(stringCommand)) {
+                commandFound = true;
                 command.execute(command.pullArgument(stringCommand), canvas);
+                break;
             }
         }
-        canvas.repaint();
+        if (commandFound) {
+            canvas.repaint();
+        } else {
+            consoleLogAppender.addErrorSystemLog("Command \"" + stringCommand + "\" not recognized.");
+        }
     }
 
 }

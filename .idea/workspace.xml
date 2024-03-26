@@ -5,20 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e7210760-e9b5-4fd9-b450-0ad6f50427ef" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/AppConstants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/AppConstants.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Canvas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/CanvasPointer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/components/Console.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/CanvasFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/CanvasFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ConsoleFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/MainFrameFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/MainFrameFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ToolbarFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/factory/ToolbarFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/utils/CommandErrorHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/utils/CommandErrorHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/mroz/interpreter/commands/CommandsHolder.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,6 +60,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "/Users/filip/Documents/ajio/ajio-text-drawing-app",
@@ -120,7 +109,7 @@
       <workItem from="1711303769551" duration="5522000" />
       <workItem from="1711310521092" duration="3707000" />
       <workItem from="1711382139440" duration="14757000" />
-      <workItem from="1711438014792" duration="1151000" />
+      <workItem from="1711438014792" duration="2439000" />
     </task>
     <task id="LOCAL-00001" summary="Initial setup of project">
       <created>1711390901930</created>
@@ -136,18 +125,37 @@
       <option name="project" value="LOCAL" />
       <updated>1711395811988</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Code cleanup">
+      <created>1711439480736</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1711439480736</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="Initial setup of project" />
     <MESSAGE value="Better error handling. Logs improvement." />
-    <option name="LAST_COMMIT_MESSAGE" value="Better error handling. Logs improvement." />
+    <MESSAGE value="Code cleanup" />
+    <option name="LAST_COMMIT_MESSAGE" value="Code cleanup" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
