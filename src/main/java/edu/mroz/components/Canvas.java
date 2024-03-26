@@ -1,6 +1,6 @@
 package edu.mroz.components;
 
-import edu.mroz.interpreter.CanvasCurrentPointer;
+import edu.mroz.data.PointerParameters;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +13,7 @@ import static edu.mroz.AppConstants.COMPONENTS_WIDTH;
 
 public class Canvas extends JPanel {
 
-    private final transient CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
+    private final transient PointerParameters pointerParameters = PointerParameters.getInstance();
     private final List<ColoredShape> shapes = new ArrayList<>();
 
     public Canvas() {
@@ -24,14 +24,14 @@ public class Canvas extends JPanel {
         setSize(new Dimension(COMPONENTS_WIDTH, CANVAS_HEIGHT));
         setBackground(Color.white);
 
-        CanvasPointer canvasPointer = new CanvasPointer(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, 27);
+        CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
         shapes.add(new ColoredShape(canvasPointer, null));
     }
 
     public void drawLine(int x2, int y2) {
-        Line2D line = new Line2D.Float(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, x2, y2);
-        shapes.add(new ColoredShape(line, canvasCurrentPointer.getDrawingColor()));
-        canvasCurrentPointer.setCurrentPointPosition(new Point(x2, y2));
+        Line2D line = new Line2D.Float(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, x2, y2);
+        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor()));
+        pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
 
     @Override
@@ -52,7 +52,7 @@ public class Canvas extends JPanel {
         float[] dashPattern = {6, 3};
         g2d.setStroke(new BasicStroke(1, BasicStroke.CAP_BUTT, BasicStroke.JOIN_MITER, 10, dashPattern, 0));
         g2d.setColor(Color.DARK_GRAY);
-        canvasPointer.setPositionAndDirection(canvasCurrentPointer.getCurrentPointPosition().x, canvasCurrentPointer.getCurrentPointPosition().y, canvasCurrentPointer.getDirection());
+        canvasPointer.setPositionAndDirection(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, pointerParameters.getDirection());
         g2d.draw(canvasPointer);
         g2d.setStroke(new BasicStroke());
     }

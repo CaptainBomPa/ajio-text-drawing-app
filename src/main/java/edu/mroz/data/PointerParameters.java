@@ -1,4 +1,4 @@
-package edu.mroz.interpreter;
+package edu.mroz.data;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -8,9 +8,9 @@ import java.awt.*;
 import static edu.mroz.AppConstants.CANVAS_HEIGHT;
 import static edu.mroz.AppConstants.COMPONENTS_WIDTH;
 
-public class CanvasCurrentPointer {
+public class PointerParameters {
 
-    private static CanvasCurrentPointer instance;
+    private static PointerParameters instance;
 
     @Getter
     @Setter
@@ -22,15 +22,15 @@ public class CanvasCurrentPointer {
     @Setter
     private Color drawingColor;
 
-    private CanvasCurrentPointer() {
+    private PointerParameters() {
         currentPointPosition = new Point(COMPONENTS_WIDTH / 2, CANVAS_HEIGHT / 2);
         direction = 0;
         drawingColor = Color.BLACK;
     }
 
-    public static synchronized CanvasCurrentPointer getInstance() {
+    public static synchronized PointerParameters getInstance() {
         if (instance == null) {
-            instance = new CanvasCurrentPointer();
+            instance = new PointerParameters();
         }
         return instance;
     }

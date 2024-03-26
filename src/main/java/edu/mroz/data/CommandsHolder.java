@@ -1,7 +1,11 @@
-package edu.mroz.interpreter.commands;
+package edu.mroz.data;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.interpreter.ConsoleLogAppender;
+import edu.mroz.interpreter.commands.ColorCommand;
+import edu.mroz.interpreter.commands.Command;
+import edu.mroz.interpreter.commands.DirectionCommand;
+import edu.mroz.interpreter.commands.GoCommand;
+import edu.mroz.utils.ConsoleLogAppender;
 import lombok.Getter;
 
 import java.util.ArrayList;

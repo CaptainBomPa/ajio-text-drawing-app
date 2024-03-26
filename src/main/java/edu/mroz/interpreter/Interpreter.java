@@ -1,7 +1,7 @@
 package edu.mroz.interpreter;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.interpreter.commands.CommandsHolder;
+import edu.mroz.data.CommandsHolder;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;

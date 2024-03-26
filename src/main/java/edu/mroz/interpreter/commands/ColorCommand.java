@@ -1,9 +1,9 @@
 package edu.mroz.interpreter.commands;
 
 import edu.mroz.components.Canvas;
-import edu.mroz.interpreter.CanvasCurrentPointer;
-import edu.mroz.interpreter.ConsoleLogAppender;
+import edu.mroz.data.PointerParameters;
 import edu.mroz.interpreter.commands.utils.CommandErrorHandler;
+import edu.mroz.utils.ConsoleLogAppender;
 
 import java.awt.*;
 import java.util.HashMap;
@@ -25,7 +25,7 @@ public class ColorCommand implements Command {
         colorMap.put("YELLOW", Color.YELLOW);
     }
 
-    private final CanvasCurrentPointer canvasCurrentPointer = CanvasCurrentPointer.getInstance();
+    private final PointerParameters pointerParameters = PointerParameters.getInstance();
     private final Pattern commandPattern = Pattern.compile("^(color)\\s*(\\S*)$");
     private final Pattern namedColorPattern = Pattern.compile("^color (RED|BLUE|GREEN|BLACK|GRAY|PINK|WHITE|YELLOW)$", Pattern.CASE_INSENSITIVE);
     private final Pattern hexColorPattern = Pattern.compile("^color (#[a-f0-9]{6})$", Pattern.CASE_INSENSITIVE);
@@ -64,6 +64,6 @@ public class ColorCommand implements Command {
                 return;
             }
         }
-        canvasCurrentPointer.setDrawingColor(color);
+        pointerParameters.setDrawingColor(color);
     }
 }

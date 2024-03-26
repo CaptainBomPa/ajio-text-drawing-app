@@ -1,4 +1,4 @@
-package edu.mroz.interpreter;
+package edu.mroz.utils;
 
 import edu.mroz.components.Console;
 import lombok.Setter;

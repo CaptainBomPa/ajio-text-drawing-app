@@ -6,8 +6,8 @@ import edu.mroz.factory.CanvasFactory;
 import edu.mroz.factory.ConsoleFactory;
 import edu.mroz.factory.MainFrameFactory;
 import edu.mroz.factory.ToolbarFactory;
-import edu.mroz.interpreter.ConsoleLogAppender;
 import edu.mroz.interpreter.Interpreter;
+import edu.mroz.utils.ConsoleLogAppender;
 
 import javax.swing.*;
 import java.awt.*;

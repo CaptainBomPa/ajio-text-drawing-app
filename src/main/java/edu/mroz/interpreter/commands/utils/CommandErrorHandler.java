@@ -1,6 +1,6 @@
 package edu.mroz.interpreter.commands.utils;
 
-import edu.mroz.interpreter.ConsoleLogAppender;
+import edu.mroz.utils.ConsoleLogAppender;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
