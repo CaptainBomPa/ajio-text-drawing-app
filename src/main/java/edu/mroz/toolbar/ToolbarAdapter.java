@@ -1,6 +1,8 @@
 package edu.mroz.toolbar;
 
 import edu.mroz.components.Canvas;
+import edu.mroz.toolbar.action.ClearUserAction;
+import edu.mroz.toolbar.action.ShowHidePointerUserAction;
 import lombok.Getter;
 
 import javax.swing.*;

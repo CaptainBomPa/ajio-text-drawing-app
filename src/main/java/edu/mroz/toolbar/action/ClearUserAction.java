@@ -1,4 +1,4 @@
-package edu.mroz.toolbar;
+package edu.mroz.toolbar.action;
 
 import edu.mroz.components.Canvas;
 import edu.mroz.utils.ConsoleLogAppender;

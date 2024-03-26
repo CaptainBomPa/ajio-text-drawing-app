@@ -39,8 +39,15 @@ public class Canvas extends JPanel {
     }
 
     public void drawLine(int x2, int y2) {
-        Line2D line = new Line2D.Float(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, x2, y2);
+        int x1 = pointerParameters.getCurrentPointPosition().x;
+        int y1 = pointerParameters.getCurrentPointPosition().y;
+
+        x2 = Math.max(0, Math.min(x2, COMPONENTS_WIDTH - 1));
+        y2 = Math.max(0, Math.min(y2, CANVAS_HEIGHT - 1));
+
+        Line2D line = new Line2D.Float(x1, y1, x2, y2);
         shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw()));
+
         pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
 
