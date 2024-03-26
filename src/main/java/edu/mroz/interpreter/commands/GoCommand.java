@@ -11,7 +11,7 @@ public class GoCommand implements Command {
 
     private static final PointerParameters pointerParameters = PointerParameters.getInstance();
     private final Pattern pattern = Pattern.compile("^(go) (\\d+)$");
-    private final Pattern commandPattern = Pattern.compile("^(go)\\s*([^\\s]*)$");
+    private final Pattern commandPattern = Pattern.compile("^(go)\\s*(\\S*)$");
 
     @Override
     public boolean matchRegex(String value) {

@@ -4,9 +4,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.awt.*;
+import java.io.Serializable;
 
 @Getter
-public class ColoredShape {
+public class ColoredShape implements Serializable {
 
     private final Shape shape;
     private final Color color;

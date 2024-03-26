@@ -12,7 +12,7 @@ public class DirectionCommand implements Command {
     private static final PointerParameters POINTER_PARAMETERS = PointerParameters.getInstance();
 
     private final Pattern pattern = Pattern.compile("^(direction) ([+-]?\\d{1,3}|360)$");
-    private final Pattern commandPattern = Pattern.compile("^(direction)\\s*([^\\s]*)$");
+    private final Pattern commandPattern = Pattern.compile("^(direction)\\s*(\\S*)$");
 
     @Override
     public boolean matchRegex(String value) {

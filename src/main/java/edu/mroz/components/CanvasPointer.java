@@ -2,8 +2,9 @@ package edu.mroz.components;
 
 import java.awt.*;
 import java.awt.geom.*;
+import java.io.Serializable;
 
-public class CanvasPointer implements Shape {
+public class CanvasPointer implements Shape, Serializable {
     private Path2D path;
     private double direction = 0.0;
     private double x;

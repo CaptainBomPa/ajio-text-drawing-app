@@ -2,6 +2,7 @@ package edu.mroz.components;
 
 import edu.mroz.data.PointerParameters;
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,9 @@ import static edu.mroz.AppConstants.COMPONENTS_WIDTH;
 public class Canvas extends JPanel {
 
     private final transient PointerParameters pointerParameters = PointerParameters.getInstance();
-    private final List<ColoredShape> shapes = new ArrayList<>();
+    @Getter
+    @Setter
+    private List<ColoredShape> shapes = new ArrayList<>();
     @Getter
     private ColoredShape pointerAsShape;
 
