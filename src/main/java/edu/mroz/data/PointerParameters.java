@@ -32,6 +32,10 @@ public class PointerParameters {
         pointerState = PointerState.DOWN;
     }
 
+    public void movePointerToCenter() {
+        currentPointPosition = new Point(COMPONENTS_WIDTH / 2, CANVAS_HEIGHT / 2);
+    }
+
     public static synchronized PointerParameters getInstance() {
         if (instance == null) {
             instance = new PointerParameters();

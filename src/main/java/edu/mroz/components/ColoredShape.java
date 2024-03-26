@@ -1,6 +1,7 @@
 package edu.mroz.components;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import java.awt.*;
 
@@ -9,7 +10,8 @@ public class ColoredShape {
 
     private final Shape shape;
     private final Color color;
-    private final boolean shouldDraw;
+    @Setter
+    private boolean shouldDraw;
 
     public ColoredShape(Shape shape, Color color, boolean shouldDraw) {
         this.shape = shape;

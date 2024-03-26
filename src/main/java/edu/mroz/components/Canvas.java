@@ -1,6 +1,7 @@
 package edu.mroz.components;
 
 import edu.mroz.data.PointerParameters;
+import lombok.Getter;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +16,8 @@ public class Canvas extends JPanel {
 
     private final transient PointerParameters pointerParameters = PointerParameters.getInstance();
     private final List<ColoredShape> shapes = new ArrayList<>();
+    @Getter
+    private ColoredShape pointerAsShape;
 
     public Canvas() {
         super();
@@ -24,8 +27,15 @@ public class Canvas extends JPanel {
         setSize(new Dimension(COMPONENTS_WIDTH, CANVAS_HEIGHT));
         setBackground(Color.white);
 
-        CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
-        shapes.add(new ColoredShape(canvasPointer, null, true));
+        pointerAsShape = createPointer();
+        shapes.add(pointerAsShape);
+    }
+
+    public void clearCanvas() {
+        shapes.clear();
+        pointerAsShape = createPointer();
+        shapes.add(pointerAsShape);
+        repaint();
     }
 
     public void drawLine(int x2, int y2) {
@@ -39,7 +49,7 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         for (ColoredShape coloredShape : shapes) {
-            if (coloredShape.getShape() instanceof CanvasPointer) {
+            if (coloredShape.getShape() instanceof CanvasPointer && coloredShape.isShouldDraw()) {
                 paintPointer(g2d, (CanvasPointer) coloredShape.getShape());
             } else if (coloredShape.isShouldDraw()) {
                 g2d.setColor(coloredShape.getColor());
@@ -55,5 +65,11 @@ public class Canvas extends JPanel {
         canvasPointer.setPositionAndDirection(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, pointerParameters.getDirection());
         g2d.draw(canvasPointer);
         g2d.setStroke(new BasicStroke());
+    }
+
+    private ColoredShape createPointer() {
+        pointerParameters.movePointerToCenter();
+        CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
+        return new ColoredShape(canvasPointer, null, true);
     }
 }

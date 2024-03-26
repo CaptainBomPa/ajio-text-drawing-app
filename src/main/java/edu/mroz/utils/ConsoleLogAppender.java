@@ -7,6 +7,7 @@ import javax.swing.*;
 import javax.swing.text.BadLocationException;
 import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
 import java.awt.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -28,6 +29,16 @@ public class ConsoleLogAppender {
         return instance;
     }
 
+    public void clearLogs() {
+        final JTextPane textPane = (JTextPane) console.getLogArea().getViewport().getView();
+        try {
+            StyledDocument document = textPane.getStyledDocument();
+            document.remove(0, document.getLength());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
     public void addUserPromptLog(String logInfo) {
         SimpleAttributeSet attribute = new SimpleAttributeSet();
         StyleConstants.setForeground(attribute, Color.BLUE);
@@ -40,16 +51,32 @@ public class ConsoleLogAppender {
         }
     }
 
-    public void addErrorSystemLog(String logInfo) {
+    public void addInfoSystemLog(String logInfo) {
         SimpleAttributeSet attribute = new SimpleAttributeSet();
-        StyleConstants.setForeground(attribute, Color.RED);
-        String formattedLog = "<<< [" + LocalDateTime.now().format(formatter) + "]: " + logInfo + "\n";
+        StyleConstants.setForeground(attribute, Color.decode("#ad61e0"));
+        String formattedLog = getSystemFormattedMessage(logInfo);
         try {
             final JTextPane textPane = (JTextPane) console.getLogArea().getViewport().getView();
             textPane.getStyledDocument().insertString(textPane.getStyledDocument().getLength(), formattedLog, attribute);
         } catch (BadLocationException e) {
             e.printStackTrace();
         }
+    }
+
+    public void addErrorSystemLog(String logInfo) {
+        SimpleAttributeSet attribute = new SimpleAttributeSet();
+        StyleConstants.setForeground(attribute, Color.RED);
+        String formattedLog = getSystemFormattedMessage(logInfo);
+        try {
+            final JTextPane textPane = (JTextPane) console.getLogArea().getViewport().getView();
+            textPane.getStyledDocument().insertString(textPane.getStyledDocument().getLength(), formattedLog, attribute);
+        } catch (BadLocationException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private String getSystemFormattedMessage(String log) {
+        return "<<< [" + LocalDateTime.now().format(formatter) + "]: " + log + "\n";
     }
 
 }
