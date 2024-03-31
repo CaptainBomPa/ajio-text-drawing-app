@@ -45,6 +45,7 @@ public class HelpUserAction {
                 createEntry("up", "", "Raising the brush. The pointer will only move from that point.") +
                 createEntry("down", "", "Lowering the brush. The pointer will draw.") +
                 createEntry("repeat", "0 to unlimited Integer number", "Repeat next commands X times.") +
+                createEntry("rollback", "0 to unlimited Integer number", "Rollback last drawing.") +
                 "</body></html>";
     }
 

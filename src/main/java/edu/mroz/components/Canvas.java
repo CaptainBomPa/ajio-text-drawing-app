@@ -34,6 +34,12 @@ public class Canvas extends JPanel {
         shapes.add(pointerAsShape);
     }
 
+    public void removeLastShape() {
+        ColoredShape shape = shapes.remove(shapes.size() - 1);
+        pointerParameters.setCurrentPointPosition(shape.getLastPointerPosition());
+        pointerParameters.setDirection(shape.getDirection());
+    }
+
     public void clearCanvas() {
         shapes.clear();
         pointerAsShape = createPointer();
@@ -49,8 +55,8 @@ public class Canvas extends JPanel {
         y2 = Math.max(0, Math.min(y2, CANVAS_HEIGHT - 1));
 
         Line2D line = new Line2D.Float(x1, y1, x2, y2);
-        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw()));
-
+        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw(),
+                pointerParameters.getCurrentPointPosition(), pointerParameters.getDirection()));
         pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
 
@@ -80,6 +86,6 @@ public class Canvas extends JPanel {
     private ColoredShape createPointer() {
         pointerParameters.movePointerToCenter();
         CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
-        return new ColoredShape(canvasPointer, null, true);
+        return new ColoredShape(canvasPointer, null, true, null, null);
     }
 }
