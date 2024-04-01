@@ -30,16 +30,16 @@ public class DirectionCommand implements Command {
     }
 
     @Override
-    public void execute(String value, Canvas canvas) {
+    public void execute(Object value, Canvas canvas) {
         int currentDirection = POINTER_PARAMETERS.getDirection();
         int change;
         int newDirection;
 
-        if (value.startsWith("+") || value.startsWith("-")) {
-            change = Integer.parseInt(value);
+        if (((String) value).startsWith("+") || ((String) value).startsWith("-")) {
+            change = Integer.parseInt(((String) value));
             newDirection = currentDirection + change;
         } else {
-            newDirection = Integer.parseInt(value);
+            newDirection = Integer.parseInt(((String) value));
         }
 
         newDirection %= 360;

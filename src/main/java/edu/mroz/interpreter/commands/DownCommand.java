@@ -23,7 +23,7 @@ public class DownCommand implements Command {
     }
 
     @Override
-    public void execute(String value, Canvas canvas) {
+    public void execute(Object value, Canvas canvas) {
         pointerParameters.setPointerState(PointerState.DOWN);
     }
 }

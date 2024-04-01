@@ -51,13 +51,13 @@ public class ColorCommand implements Command {
     }
 
     @Override
-    public void execute(String value, Canvas canvas) {
+    public void execute(Object value, Canvas canvas) {
         Color color;
-        if (colorMap.containsKey(value.toUpperCase())) {
-            color = colorMap.get(value.toUpperCase());
+        if (colorMap.containsKey(((String) value).toUpperCase())) {
+            color = colorMap.get(((String) value).toUpperCase());
         } else {
             try {
-                color = Color.decode(value);
+                color = Color.decode(((String) value));
             } catch (NumberFormatException e) {
                 String errorLogString = "Invalid hex color format: " + value;
                 consoleLogAppender.addErrorSystemLog(errorLogString);

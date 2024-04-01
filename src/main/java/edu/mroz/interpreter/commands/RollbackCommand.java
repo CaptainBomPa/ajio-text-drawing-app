@@ -29,8 +29,8 @@ public class RollbackCommand implements Command {
     }
 
     @Override
-    public void execute(String value, Canvas canvas) {
-        int rollbackTimes = Integer.parseInt(value);
+    public void execute(Object value, Canvas canvas) {
+        int rollbackTimes = Integer.parseInt(((String) value));
 
         for (int i = 0; i < rollbackTimes; i++) {
             canvas.removeLastShape();

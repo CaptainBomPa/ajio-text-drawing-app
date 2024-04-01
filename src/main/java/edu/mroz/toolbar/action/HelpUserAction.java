@@ -12,8 +12,8 @@ public class HelpUserAction {
         popupMenu.setBorder(BorderFactory.createLineBorder(Color.GRAY, 1));
 
         JTextPane textPane = new JTextPane();
-        textPane.setPreferredSize(new Dimension(500, 200));
-        popupMenu.setPreferredSize(new Dimension(500, 200));
+        textPane.setPreferredSize(new Dimension(700, 230));
+        popupMenu.setPreferredSize(new Dimension(700, 230));
         textPane.setContentType("text/html");
         textPane.setEditable(false);
         textPane.setBackground(button.getBackground());
@@ -39,13 +39,20 @@ public class HelpUserAction {
     private String buildHelpHTML() {
         return "<html><body>" +
                 "<b>Commands:</b><br>" +
-                createEntry("color", "RED | GREEN | #f0f0f0 and so on...", "Change the color of the line.") +
-                createEntry("go", "0 to unlimited Integer number", "Draw line in pixels.") +
-                createEntry("direction", "0-359 | +60 | -90 and so on...", "Change the direction of the pointer. It can be static, decreased or increased.") +
-                createEntry("up", "", "Raising the brush. The pointer will only move from that point.") +
-                createEntry("down", "", "Lowering the brush. The pointer will draw.") +
-                createEntry("repeat", "0 to unlimited Integer number", "Repeat next commands X times.") +
-                createEntry("rollback", "0 to unlimited Integer number", "Rollback last drawing.") +
+                createEntry("color", "RED | GREEN | #f0f0f0 and so on...",
+                        "Change the color of the line.") +
+                createEntry("go", "0 to unlimited Integer number",
+                        "Draw line in pixels.") +
+                createEntry("direction", "0-359 | +60 | -90 and so on...",
+                        "Change the direction of the pointer. It can be static, decreased or increased.") +
+                createEntry("up", "",
+                        "Raising the brush. The pointer will only move from that point.") +
+                createEntry("down", "",
+                        "Lowering the brush. The pointer will draw.") +
+                createEntry("repeat", "0 to unlimited Integer number",
+                        "Repeat next commands X times.") +
+                createEntry("circle", "[1st] - Radius of the circle, [2nd] - Percentage of circle creation, [3rd] Clockwise (true|false)",
+                        "Creates a circle with the given radius. For example, if the second parameter is set to 50%, only half of the circle will be painted.") +
                 "</body></html>";
     }
 

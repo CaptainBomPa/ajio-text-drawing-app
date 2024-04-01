@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.geom.Arc2D;
 import java.awt.geom.Line2D;
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +60,25 @@ public class Canvas extends JPanel {
                 pointerParameters.getCurrentPointPosition(), pointerParameters.getDirection()));
         pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
+
+    public void drawCircle(int r, double percent, boolean clockwise) {
+        int xStart = pointerParameters.getCurrentPointPosition().x;
+        int yStart = pointerParameters.getCurrentPointPosition().y;
+        int direction = pointerParameters.getDirection();
+
+        int startAngle = (360 - direction + 90) % 360;
+
+        int arcAngle = (int) (percent / 100.0 * 360);
+        if (clockwise) {
+            startAngle -= arcAngle;
+        }
+        int xCenter = xStart - r;
+        int yCenter = yStart - r;
+        Arc2D.Double circle = new Arc2D.Double(xCenter, yCenter, 2 * r, 2 * r, startAngle, arcAngle, Arc2D.OPEN);
+        shapes.add(new ColoredShape(circle, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw(),
+                pointerParameters.getCurrentPointPosition(), pointerParameters.getDirection()));
+    }
+
 
     @Override
     protected void paintComponent(Graphics g) {

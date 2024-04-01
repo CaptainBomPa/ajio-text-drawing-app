@@ -6,7 +6,7 @@ public interface Command {
 
     boolean matchRegex(String value);
 
-    String pullArgument(String value);
+    Object pullArgument(String value);
 
-    void execute(String value, Canvas canvas);
+    void execute(Object value, Canvas canvas);
 }

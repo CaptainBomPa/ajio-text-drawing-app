@@ -25,4 +25,9 @@ public class CommandErrorHandler {
         }
     }
 
+    public static void handleCircleCommandError(String value, String reason) {
+        String errorLogString = "Issue when trying to execute circle command: " + value + ". \n" + reason;
+        consoleLogAppender.addErrorSystemLog(errorLogString);
+    }
+
 }

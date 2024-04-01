@@ -29,8 +29,8 @@ public class GoCommand implements Command {
     }
 
     @Override
-    public void execute(String value, Canvas canvas) {
-        int distance = Integer.parseInt(value);
+    public void execute(Object value, Canvas canvas) {
+        int distance = Integer.parseInt(((String) value));
         double directionRadians = Math.toRadians(pointerParameters.getDirection());
 
         int deltaX = (int) (distance * Math.sin(directionRadians));
