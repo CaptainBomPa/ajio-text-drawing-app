@@ -11,7 +11,7 @@ import java.util.List;
 public class CommandsHolder {
 
     private static final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
-    public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color|up|down|repeat|rollback|circle)";
+    public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color|up|down|repeat|rollback|circle|size)";
     private static CommandsHolder instance;
     @Getter
     private final List<Command> commandList;
@@ -48,6 +48,7 @@ public class CommandsHolder {
         commandList.add(new DownCommand());
         commandList.add(new RollbackCommand());
         commandList.add(new CircleCommand());
+        commandList.add(new SizeCommand());
     }
 
 }

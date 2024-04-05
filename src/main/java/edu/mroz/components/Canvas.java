@@ -19,9 +19,9 @@ public class Canvas extends JPanel {
     private final transient PointerParameters pointerParameters = PointerParameters.getInstance();
     @Getter
     @Setter
-    private List<ColoredShape> shapes = new ArrayList<>();
+    private List<ExtendedShapeWrapper> shapes = new ArrayList<>();
     @Getter
-    private ColoredShape pointerAsShape;
+    private ExtendedShapeWrapper pointerAsShape;
 
     public Canvas() {
         super();
@@ -36,7 +36,7 @@ public class Canvas extends JPanel {
     }
 
     public void removeLastShape() {
-        ColoredShape shape = shapes.remove(shapes.size() - 1);
+        ExtendedShapeWrapper shape = shapes.remove(shapes.size() - 1);
         pointerParameters.setCurrentPointPosition(shape.getLastPointerPosition());
         pointerParameters.setDirection(shape.getDirection());
     }
@@ -56,8 +56,7 @@ public class Canvas extends JPanel {
         y2 = Math.max(0, Math.min(y2, CANVAS_HEIGHT - 1));
 
         Line2D line = new Line2D.Float(x1, y1, x2, y2);
-        shapes.add(new ColoredShape(line, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw(),
-                pointerParameters.getCurrentPointPosition(), pointerParameters.getDirection()));
+        shapes.add(new ExtendedShapeWrapper(line, pointerParameters));
         pointerParameters.setCurrentPointPosition(new Point(x2, y2));
     }
 
@@ -75,21 +74,20 @@ public class Canvas extends JPanel {
         int xCenter = xStart - r;
         int yCenter = yStart - r;
         Arc2D.Double circle = new Arc2D.Double(xCenter, yCenter, 2 * r, 2 * r, startAngle, arcAngle, Arc2D.OPEN);
-        shapes.add(new ColoredShape(circle, pointerParameters.getDrawingColor(), pointerParameters.shouldDraw(),
-                pointerParameters.getCurrentPointPosition(), pointerParameters.getDirection()));
+        shapes.add(new ExtendedShapeWrapper(circle, pointerParameters));
     }
-
 
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
-        for (ColoredShape coloredShape : shapes) {
-            if (coloredShape.getShape() instanceof CanvasPointer && coloredShape.isShouldDraw()) {
-                paintPointer(g2d, (CanvasPointer) coloredShape.getShape());
-            } else if (coloredShape.isShouldDraw()) {
-                g2d.setColor(coloredShape.getColor());
-                g2d.draw(coloredShape.getShape());
+        for (ExtendedShapeWrapper extendedShapeWrapper : shapes) {
+            g2d.setStroke(extendedShapeWrapper.getStroke());
+            if (extendedShapeWrapper.getShape() instanceof CanvasPointer && extendedShapeWrapper.isShouldDraw()) {
+                paintPointer(g2d, (CanvasPointer) extendedShapeWrapper.getShape());
+            } else if (extendedShapeWrapper.isShouldDraw()) {
+                g2d.setColor(extendedShapeWrapper.getColor());
+                g2d.draw(extendedShapeWrapper.getShape());
             }
         }
     }
@@ -103,9 +101,9 @@ public class Canvas extends JPanel {
         g2d.setStroke(new BasicStroke());
     }
 
-    private ColoredShape createPointer() {
+    private ExtendedShapeWrapper createPointer() {
         pointerParameters.movePointerToCenter();
         CanvasPointer canvasPointer = new CanvasPointer(pointerParameters.getCurrentPointPosition().x, pointerParameters.getCurrentPointPosition().y, 27);
-        return new ColoredShape(canvasPointer, null, true, null, null);
+        return new ExtendedShapeWrapper(canvasPointer);
     }
 }

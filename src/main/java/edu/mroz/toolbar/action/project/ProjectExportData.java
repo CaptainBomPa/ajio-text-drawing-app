@@ -1,6 +1,6 @@
 package edu.mroz.toolbar.action.project;
 
-import edu.mroz.components.ColoredShape;
+import edu.mroz.components.ExtendedShapeWrapper;
 import edu.mroz.data.PointerParameters;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -15,5 +15,5 @@ import java.util.List;
 public class ProjectExportData implements Serializable {
 
     private PointerParameters pointerParameters;
-    private List<ColoredShape> shapes;
+    private List<ExtendedShapeWrapper> shapes;
 }
