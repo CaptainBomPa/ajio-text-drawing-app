@@ -1,5 +1,6 @@
 package edu.mroz.components;
 
+import edu.mroz.data.DrawingStyle;
 import edu.mroz.data.PointerParameters;
 import lombok.Getter;
 import lombok.Setter;
@@ -82,13 +83,41 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         for (ExtendedShapeWrapper extendedShapeWrapper : shapes) {
-            g2d.setStroke(new BasicStroke(extendedShapeWrapper.getStrokeSize()));
+            configureStroke(g2d, extendedShapeWrapper);
             if (extendedShapeWrapper.getShape() instanceof CanvasPointer && extendedShapeWrapper.isShouldDraw()) {
                 paintPointer(g2d, (CanvasPointer) extendedShapeWrapper.getShape());
             } else if (extendedShapeWrapper.isShouldDraw()) {
                 g2d.setColor(extendedShapeWrapper.getColor());
                 g2d.draw(extendedShapeWrapper.getShape());
             }
+        }
+    }
+
+    private void configureStroke(Graphics2D g2d, ExtendedShapeWrapper extendedShapeWrapper) {
+        float strokeSize = extendedShapeWrapper.getStrokeSize();
+        DrawingStyle drawingStyle = extendedShapeWrapper.getDrawingStyle();
+        if (drawingStyle == DrawingStyle.LINE) {
+            g2d.setStroke(new BasicStroke(strokeSize));
+        } else if (drawingStyle == DrawingStyle.DASHED) {
+            float[] dashedPattern = new float[]{10, 10};
+            g2d.setStroke(new BasicStroke(
+                    strokeSize,
+                    BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_BEVEL,
+                    1.0f,
+                    dashedPattern,
+                    0f
+            ));
+        } else if (drawingStyle == DrawingStyle.DOTTED) {
+            float[] dottedPattern = new float[]{2, 10};
+            g2d.setStroke(new BasicStroke(
+                    strokeSize,
+                    BasicStroke.CAP_BUTT,
+                    BasicStroke.JOIN_BEVEL,
+                    1.0f,
+                    dottedPattern,
+                    0f
+            ));
         }
     }
 

@@ -1,5 +1,6 @@
 package edu.mroz.components;
 
+import edu.mroz.data.DrawingStyle;
 import edu.mroz.data.PointerParameters;
 import lombok.Getter;
 import lombok.Setter;
@@ -17,6 +18,7 @@ public class ExtendedShapeWrapper implements Serializable {
     private final Point lastPointerPosition;
     private final Integer direction;
     private final float strokeSize;
+    private final DrawingStyle drawingStyle;
 
     public ExtendedShapeWrapper(Shape shape, PointerParameters pointerParameters) {
         this.shape = shape;
@@ -25,6 +27,7 @@ public class ExtendedShapeWrapper implements Serializable {
         this.lastPointerPosition = pointerParameters.getCurrentPointPosition();
         this.direction = pointerParameters.getDirection();
         this.strokeSize = pointerParameters.getStrokeSize();
+        this.drawingStyle = pointerParameters.getDrawingStyle();
     }
 
     public ExtendedShapeWrapper(Shape shape) {
@@ -34,5 +37,6 @@ public class ExtendedShapeWrapper implements Serializable {
         this.lastPointerPosition = null;
         this.direction = null;
         this.strokeSize = 1.0f;
+        this.drawingStyle = DrawingStyle.LINE;
     }
 }

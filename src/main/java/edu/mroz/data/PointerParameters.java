@@ -28,6 +28,9 @@ public class PointerParameters implements Serializable {
     @Getter
     @Setter
     private float strokeSize;
+    @Getter
+    @Setter
+    private DrawingStyle drawingStyle;
 
     private PointerParameters() {
         currentPointPosition = new Point(COMPONENTS_WIDTH / 2, CANVAS_HEIGHT / 2);
@@ -35,6 +38,7 @@ public class PointerParameters implements Serializable {
         drawingColor = Color.BLACK;
         pointerState = PointerState.DOWN;
         strokeSize = 1.0f;
+        drawingStyle = DrawingStyle.LINE;
     }
 
     public void movePointerToCenter() {

@@ -53,6 +53,7 @@ public class HelpUserAction {
                         "Repeat next commands X times.") +
                 createEntry("circle", "[1st] - Radius of the circle, [2nd] - Percentage of circle creation, [3rd] Clockwise (true|false)",
                         "Creates a circle with the given radius. For example, if the second parameter is set to 50%, only half of the circle will be painted.") +
+                createEntry("style", "line | dashed | dotted", "Style of drawing") +
                 "</body></html>";
     }
 
