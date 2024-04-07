@@ -82,7 +82,7 @@ public class Canvas extends JPanel {
         super.paintComponent(g);
         Graphics2D g2d = (Graphics2D) g;
         for (ExtendedShapeWrapper extendedShapeWrapper : shapes) {
-            g2d.setStroke(extendedShapeWrapper.getStroke());
+            g2d.setStroke(new BasicStroke(extendedShapeWrapper.getStrokeSize()));
             if (extendedShapeWrapper.getShape() instanceof CanvasPointer && extendedShapeWrapper.isShouldDraw()) {
                 paintPointer(g2d, (CanvasPointer) extendedShapeWrapper.getShape());
             } else if (extendedShapeWrapper.isShouldDraw()) {

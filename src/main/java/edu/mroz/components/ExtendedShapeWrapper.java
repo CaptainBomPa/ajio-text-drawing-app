@@ -16,7 +16,7 @@ public class ExtendedShapeWrapper implements Serializable {
     private boolean shouldDraw;
     private final Point lastPointerPosition;
     private final Integer direction;
-    private final Stroke stroke;
+    private final float strokeSize;
 
     public ExtendedShapeWrapper(Shape shape, PointerParameters pointerParameters) {
         this.shape = shape;
@@ -24,7 +24,7 @@ public class ExtendedShapeWrapper implements Serializable {
         this.shouldDraw = pointerParameters.shouldDraw();
         this.lastPointerPosition = pointerParameters.getCurrentPointPosition();
         this.direction = pointerParameters.getDirection();
-        this.stroke = pointerParameters.getStroke();
+        this.strokeSize = pointerParameters.getStrokeSize();
     }
 
     public ExtendedShapeWrapper(Shape shape) {
@@ -33,6 +33,6 @@ public class ExtendedShapeWrapper implements Serializable {
         this.shouldDraw = true;
         this.lastPointerPosition = null;
         this.direction = null;
-        this.stroke = new BasicStroke(1.0f);
+        this.strokeSize = 1.0f;
     }
 }

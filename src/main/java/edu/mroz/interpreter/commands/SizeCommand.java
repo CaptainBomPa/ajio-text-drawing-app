@@ -4,7 +4,6 @@ import edu.mroz.components.Canvas;
 import edu.mroz.data.PointerParameters;
 import edu.mroz.interpreter.commands.utils.CommandErrorHandler;
 
-import java.awt.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -32,6 +31,6 @@ public class SizeCommand implements Command {
     @Override
     public void execute(Object value, Canvas canvas) {
         final float size = Float.parseFloat((String) value);
-        pointerParameters.setStroke(new BasicStroke(size));
+        pointerParameters.setStrokeSize(size);
     }
 }

@@ -27,14 +27,14 @@ public class PointerParameters implements Serializable {
     private PointerState pointerState;
     @Getter
     @Setter
-    private Stroke stroke;
+    private float strokeSize;
 
     private PointerParameters() {
         currentPointPosition = new Point(COMPONENTS_WIDTH / 2, CANVAS_HEIGHT / 2);
         direction = 0;
         drawingColor = Color.BLACK;
         pointerState = PointerState.DOWN;
-        stroke = new BasicStroke(1.0f);
+        strokeSize = 1.0f;
     }
 
     public void movePointerToCenter() {
