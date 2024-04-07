@@ -17,11 +17,9 @@ public class CommandErrorHandler {
         if (matcher.find() && matcher.group(1) != null && matcher.group(2) != null && !matcher.group(2).isBlank()) {
             String errorLogString = "Expected proper " + matcher.group(1) + " command. Value=" + matcher.group(2) + " is unexpected.";
             consoleLogAppender.addErrorSystemLog(errorLogString);
-            throw new IllegalArgumentException(errorLogString);
         } else {
-            String errorLogString = "Expected proper " + matcher.group(1) + " command, but got nothing.";
+            String errorLogString = "Command: " + value + " is unexpected.";
             consoleLogAppender.addErrorSystemLog(errorLogString);
-            throw new IllegalArgumentException(errorLogString);
         }
     }
 

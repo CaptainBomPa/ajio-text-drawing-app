@@ -23,7 +23,7 @@ public class RepeatCommand implements Command {
         if (matcher.find()) {
             return matcher.group(2);
         }
-        CommandErrorHandler.handleError(commandPattern, value);
+        CommandErrorHandler.handleError(pattern, value);
         return null;
     }
 

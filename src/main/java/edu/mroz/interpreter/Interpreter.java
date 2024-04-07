@@ -25,7 +25,7 @@ public class Interpreter {
     }
 
     public void interpretCommand(String multipleCommands, Canvas canvas) {
-        List<String> commands = new ArrayList<>(Arrays.asList(multipleCommands.split(CommandsHolder.SPLIT_COMMAND_REGEX)));
+        List<String> commands = new ArrayList<>(Arrays.asList(multipleCommands.trim().split(CommandsHolder.SPLIT_COMMAND_REGEX)));
 
         if (commands.stream().anyMatch(command -> command.startsWith(RepeatCommand.REPEAT_COMMAND))) {
             if (commands.get(0).startsWith(RepeatCommand.REPEAT_COMMAND)) {
