@@ -32,6 +32,11 @@ public class ColorCommand implements Command {
     private final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
 
     @Override
+    public String getCommandName() {
+        return "color";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).matches();
     }

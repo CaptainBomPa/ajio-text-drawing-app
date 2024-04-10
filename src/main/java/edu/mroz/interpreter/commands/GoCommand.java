@@ -14,6 +14,11 @@ public class GoCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(go)\\s*(\\S*)$");
 
     @Override
+    public String getCommandName() {
+        return "go";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }
@@ -30,7 +35,8 @@ public class GoCommand implements Command {
 
     @Override
     public void execute(Object value, Canvas canvas) {
-        int distance = Integer.parseInt(((String) value));
+        String stringValue = (String) value;
+        int distance = Integer.parseInt(stringValue);
         double directionRadians = Math.toRadians(pointerParameters.getDirection());
 
         int deltaX = (int) (distance * Math.sin(directionRadians));

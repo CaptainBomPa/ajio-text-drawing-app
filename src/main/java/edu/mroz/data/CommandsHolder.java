@@ -11,7 +11,6 @@ import java.util.List;
 public class CommandsHolder {
 
     private static final ConsoleLogAppender consoleLogAppender = ConsoleLogAppender.getInstance();
-    public static final String SPLIT_COMMAND_REGEX = " (?=go|direction|color|up|down|repeat|rollback|circle|size|style)";
     private static CommandsHolder instance;
     @Getter
     private final List<Command> commandList;
@@ -21,6 +20,19 @@ public class CommandsHolder {
             instance = new CommandsHolder();
         }
         return instance;
+    }
+
+    public String getCommandsRegexToSplit() {
+        StringBuilder builder = new StringBuilder();
+        builder.append(" (?=");
+        for (int i = 0; i < commandList.size(); i++) {
+            builder.append(commandList.get(i).getCommandName());
+            if (i != commandList.size() - 1) {
+                builder.append("|");
+            }
+        }
+        builder.append(")");
+        return builder.toString();
     }
 
     public void findAndRunCommand(String stringCommand, Canvas canvas) {

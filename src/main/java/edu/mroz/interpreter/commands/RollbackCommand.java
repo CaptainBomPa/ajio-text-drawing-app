@@ -14,6 +14,11 @@ public class RollbackCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(rollback)\\s*(\\S*)$");
 
     @Override
+    public String getCommandName() {
+        return "rollback";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

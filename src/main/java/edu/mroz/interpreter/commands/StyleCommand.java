@@ -15,6 +15,11 @@ public class StyleCommand implements Command {
     private final Pattern pattern = Pattern.compile("^style (line|dashed|dotted)$", Pattern.CASE_INSENSITIVE);
 
     @Override
+    public String getCommandName() {
+        return "style";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

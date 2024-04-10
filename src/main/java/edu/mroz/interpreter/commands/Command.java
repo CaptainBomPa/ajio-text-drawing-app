@@ -4,6 +4,8 @@ import edu.mroz.components.Canvas;
 
 public interface Command {
 
+    String getCommandName();
+
     boolean matchRegex(String value);
 
     Object pullArgument(String value);

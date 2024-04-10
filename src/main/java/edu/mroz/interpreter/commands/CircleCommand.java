@@ -14,6 +14,11 @@ public class CircleCommand implements Command {
     private final Pattern pattern = Pattern.compile("^(circle) (\\d+) (100|[1-9]?\\d) (true|false)$");
 
     @Override
+    public String getCommandName() {
+        return "circle";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

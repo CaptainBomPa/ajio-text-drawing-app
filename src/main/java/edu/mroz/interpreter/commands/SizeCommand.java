@@ -14,6 +14,11 @@ public class SizeCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(size)\\s+(\\S*)$");
 
     @Override
+    public String getCommandName() {
+        return "size";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

@@ -12,6 +12,11 @@ public class UpCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(up)");
 
     @Override
+    public String getCommandName() {
+        return "up";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

@@ -13,6 +13,11 @@ public class RepeatCommand implements Command {
     private final Pattern pattern = Pattern.compile("^(repeat)\\s+(\\d+)$");
 
     @Override
+    public String getCommandName() {
+        return "repeat";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return pattern.matcher(value).find();
     }

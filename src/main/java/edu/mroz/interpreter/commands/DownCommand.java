@@ -12,6 +12,11 @@ public class DownCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(down)");
 
     @Override
+    public String getCommandName() {
+        return "down";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).find();
     }

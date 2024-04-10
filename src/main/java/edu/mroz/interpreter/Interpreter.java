@@ -25,10 +25,10 @@ public class Interpreter {
     }
 
     public void interpretCommand(String multipleCommands, Canvas canvas) {
-        List<String> commands = new ArrayList<>(Arrays.asList(multipleCommands.trim().split(CommandsHolder.SPLIT_COMMAND_REGEX)));
+        List<String> commands = new ArrayList<>(Arrays.asList(multipleCommands.trim().split(commandsHolder.getCommandsRegexToSplit())));
 
-        if (commands.stream().anyMatch(command -> command.startsWith(RepeatCommand.REPEAT_COMMAND))) {
-            if (commands.get(0).startsWith(RepeatCommand.REPEAT_COMMAND)) {
+        if (containsRepeatCommand(commands)) {
+            if (startsWithRepeatCommand(commands)) {
                 RepeatCommand repeatCommand = new RepeatCommand();
                 int numberOfLoops = Integer.parseInt(repeatCommand.pullArgument(commands.get(0)));
                 commands.remove(0);
@@ -41,6 +41,14 @@ public class Interpreter {
         } else {
             searchAndRunCommand(commands, canvas);
         }
+    }
+
+    private boolean startsWithRepeatCommand(List<String> commands) {
+        return commands.get(0).startsWith(RepeatCommand.REPEAT_COMMAND);
+    }
+
+    private boolean containsRepeatCommand(List<String> commands) {
+        return commands.stream().anyMatch(command -> command.startsWith(RepeatCommand.REPEAT_COMMAND));
     }
 
     private void searchAndRunCommand(List<String> commands, Canvas canvas) {

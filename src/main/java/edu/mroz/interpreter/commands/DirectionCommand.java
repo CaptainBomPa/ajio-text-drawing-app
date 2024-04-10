@@ -15,6 +15,11 @@ public class DirectionCommand implements Command {
     private final Pattern commandPattern = Pattern.compile("^(direction)\\s*(\\S*)$");
 
     @Override
+    public String getCommandName() {
+        return "direction";
+    }
+
+    @Override
     public boolean matchRegex(String value) {
         return commandPattern.matcher(value).matches();
     }
